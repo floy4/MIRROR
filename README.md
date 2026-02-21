@@ -6,24 +6,42 @@ title: MIRROR Project Page
 <div align="center">
 
   <h1 style="font-size: 2.5em; font-weight: bold;">
-    MIRROR: A Closed-Loop Visual Reflection Framework <br> for Multi-modal LLMs
+    MIRROR: Multimodal Iterative Reasoning via Reflection on Visual Regions
   </h1>
 
   <div style="font-size: 1.2em; margin-bottom: 1em;">
     <span class="author-block">
-      <a href="#">Author Name 1</a><sup>1</sup>,
+      <a href="#">Haoyu Zhang</a><sup>1,2</sup>,
     </span>
     <span class="author-block">
-      <a href="#">Author Name 2</a><sup>1</sup>,
+      <a href="#">Yuwei Wu</a><sup>1,2</sup>,
     </span>
     <span class="author-block">
-      <a href="#">Author Name 3</a><sup>2</sup>
+      <a href="#">Pengxiang Li</a><sup>2</sup>
+    </span>
+    <span class="author-block">
+      <a href="#">Xintong Zhang</a><sup>2</sup>
+    </span>
+    <span class="author-block">
+      <a href="#">Zhi Gao</a><sup>1,2</sup>
+    </span>
+    <span class="author-block">
+      <a href="#">Rui Gao</a><sup>1,2</sup>
+    </span>
+    <span class="author-block">
+      <a href="#">Mingyang Gao</a><sup>1</sup>
+    </span>
+    <span class="author-block">
+      <a href="#">Che Sun</a><sup>2</sup>
+    </span>
+    <span class="author-block">
+      <a href="#">Yunde Jia</a><sup>2</sup>
     </span>
   </div>
 
   <div style="font-size: 1.0em; margin-bottom: 1em;">
-    <span class="author-block"><sup>1</sup>Affiliation One,</span>
-    <span class="author-block"><sup>2</sup>Affiliation Two</span>
+    <span class="author-block"><sup>1</sup>Beijing Key Laboratory of Intelligent Information Technology, School of Computer Science & Technology, Beijing Institute of Technology,</span>
+    <span class="author-block"><sup>2</sup>Guangdong Laboratory of Machine Perception and Intelligent Computing, Shenzhen MSU-BIT University</span>
   </div>
 
   <div class="column has-text-centered">
