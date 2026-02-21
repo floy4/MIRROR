@@ -73,7 +73,7 @@
 <br>
 
 <div align="center">
-  <iframe src="./static/images/teaser.pdf" width="85%" height="500px" style="border:none;"></iframe>
+  <img src="./static/images/teaser.png" width="85%" />
 </div>
 <div align="center" style="width: 80%; margin: 0 auto; text-align: justify;">
   <p>
@@ -129,7 +129,7 @@
     <h2 class="title is-3 has-text-centered">Methodology: The MIRROR Framework</h2>
     
     <div align="center">
-      <img src="./static/images/method.pdf" width="90%" />
+      <img src="./static/images/method.png" width="90%" />
       <p style="font-size: 0.9em; margin-top: 10px;">Figure 1: The architecture of MIRROR and the ReflectV data construction pipeline.</p>
     </div>
 
@@ -261,7 +261,7 @@
     <div class="content">
       <h3 class="title is-4">📊 Dynamic Adaptability</h3>
       <div align="center">
-        <img src="./static/images/adaptability_chart.png" width="60%" />
+        <img src="./static/images/base_comparison.png" width="60%" />
       </div>
       <p>
         <strong>Efficiency vs. Rigor:</strong> MIRROR adaptively adjusts its reasoning depth. For straightforward tasks like ChartQA, <strong>98.7%</strong> of samples are resolved in Round 1. For complex tasks like MME-RealWorld, it triggers multi-turn reflection, ensuring computational resources are used only when necessary.
