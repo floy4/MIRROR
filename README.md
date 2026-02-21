@@ -129,7 +129,7 @@
     <h2 class="title is-3 has-text-centered">Methodology: The MIRROR Framework</h2>
     
     <div align="center">
-      <img src="./static/images/method_pipeline.png" width="90%" />
+      <img src="./static/images/method.png" width="90%" />
       <p style="font-size: 0.9em; margin-top: 10px;">Figure 1: The MIRROR framework architecture and the closed-loop verification process[cite: 104, 144].</p>
     </div>
 
