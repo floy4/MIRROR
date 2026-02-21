@@ -1,8 +1,3 @@
----
-layout: default
-title: MIRROR Project Page
----
-
 <div align="center">
 
   <h1 style="font-size: 2.5em; font-weight: bold;">
@@ -78,7 +73,7 @@ title: MIRROR Project Page
 <br>
 
 <div align="center">
-  <img src="./static/images/teaser.pdf" width="85%" />
+  <iframe src="./static/images/teaser.pdf" width="85%" height="500px" style="border:none;"></iframe>
 </div>
 <div align="center" style="width: 80%; margin: 0 auto; text-align: justify;">
   <p>
