@@ -1,7 +1,7 @@
 <div align="center">
 
   <h1 style="font-size: 2.5em; font-weight: bold;">
-    MIRROR: Multimodal Iterative Reasoning via Reflection on Visual Regions
+    MIRROR: Multimodal Iterative Reasoning via Reflection On Visual Regions
   </h1>
 
   <div style="font-size: 1.2em; margin-bottom: 1em;">
@@ -12,22 +12,22 @@
       <a href="#">Yuwei Wu</a><sup>1,2</sup>,
     </span>
     <span class="author-block">
-      <a href="#">Pengxiang Li</a><sup>2</sup>
+      <a href="#">Pengxiang Li</a><sup>1</sup>,
     </span>
     <span class="author-block">
-      <a href="#">Xintong Zhang</a><sup>2</sup>
+      <a href="#">Xintong Zhang</a><sup>1</sup>,
     </span>
     <span class="author-block">
-      <a href="#">Zhi Gao</a><sup>1,2</sup>
+      <a href="#">Zhi Gao</a><sup>1,2</sup>,
     </span>
     <span class="author-block">
-      <a href="#">Rui Gao</a><sup>1,2</sup>
+      <a href="#">Rui Gao</a><sup>1,2</sup>,
     </span>
     <span class="author-block">
-      <a href="#">Mingyang Gao</a><sup>1</sup>
+      <a href="#">Mingyang Gao</a><sup>1</sup>,
     </span>
     <span class="author-block">
-      <a href="#">Che Sun</a><sup>2</sup>
+      <a href="#">Che Sun</a><sup>1</sup>,
     </span>
     <span class="author-block">
       <a href="#">Yunde Jia</a><sup>2</sup>
@@ -35,14 +35,14 @@
   </div>
 
   <div style="font-size: 1.0em; margin-bottom: 1em;">
-    <span class="author-block"><sup>1</sup>Beijing Key Laboratory of Intelligent Information Technology, School of Computer Science & Technology, Beijing Institute of Technology,</span>
-    <span class="author-block"><sup>2</sup>Guangdong Laboratory of Machine Perception and Intelligent Computing, Shenzhen MSU-BIT University</span>
+    <span class="author-block"><sup>1</sup>Beijing Key Laboratory of Intelligent Information Technology, BIT,</span>
+    <span class="author-block"><sup>2</sup>Shenzhen MSU-BIT University</span> [cite: 14, 15]
   </div>
 
   <div class="column has-text-centered">
     <div class="publication-links">
       <span class="link-block">
-        <a href="#" class="external-link button is-normal is-rounded is-dark">
+        <a href="https://mirror.github.io/" class="external-link button is-normal is-rounded is-dark">
           <span class="icon">📄</span>
           <span>Paper</span>
         </a>
@@ -77,7 +77,7 @@
 </div>
 <div align="center" style="width: 80%; margin: 0 auto; text-align: justify;">
   <p>
-    <strong>"Look Again" before you answer.</strong> Unlike standard VLMs that suffer from attention drift (e.g., missing the distant red car) or hallucination (e.g., miscounting dogs), <strong>MIRROR</strong> triggers a closed-loop visual verification process. It actively generates visual prompts (e.g., cyan points, green circles) to ground its reasoning in specific image regions, correcting its own initial errors.
+    <strong>"Look Again" before you answer.</strong> Unlike standard VLMs that suffer from hallucinations or logic errors (e.g., missing specific visual details) [cite: 6, 20], <strong>MIRROR</strong> triggers a closed-loop visual verification process[cite: 9, 61]. It actively generates visual prompts (e.g., yellow points, purple ellipses) to ground its reasoning in specific image regions, correcting its initial errors through iterative reflection[cite: 60, 62].
   </p>
 </div>
 
@@ -90,10 +90,10 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Existing Multi-modal Large Language Models (MLLMs) often struggle with fine-grained perception and hallucination due to the lack of a self-correction mechanism grounded in visual evidence. To address this, we introduce <strong>MIRROR</strong>, a closed-loop framework that empowers MLLMs to "look again" when facing uncertainty.
+            Existing Vision-Language Models (VLMs) often produce plausible yet ungrounded answers because their reasoning is detached from image evidence[cite: 7, 24]. To address this "modality disconnect," we propose <strong>MIRROR</strong>, a framework for multimodal iterative reasoning via reflection on visual regions[cite: 8, 23]. 
           </p>
           <p>
-            We construct <strong>ReflectV</strong>, a high-quality dataset synthesized via a multi-agent pipeline that transforms static QA into visual reflective trajectories. Leveraging this data, MIRROR learns to actively generate visual prompts (e.g., bounding boxes, points) to verify its hypotheses. Extensive experiments demonstrate that MIRROR significantly outperforms state-of-the-art models (e.g., Qwen2.5-VL, InternVL3) across comprehensive benchmarks, achieving <strong>92.00 on OCRBench</strong> and <strong>94.42 on POPE</strong>, effectively mitigating hallucinations while maintaining efficient inference.
+            We construct <strong>ReflectV</strong>, a visual reflective dataset for multi-turn supervision that explicitly contains reflection triggers and region-based verification actions[cite: 10, 63]. MIRROR is formulated as a closed-loop process comprising draft, critique, region-based verification, and revision[cite: 9, 104]. Extensive experiments show that MIRROR improves correctness and reduces hallucinations, achieving <strong>92.00 on OCRBench</strong> [cite: 248, 330] and <strong>94.42 on POPE</strong> [cite: 250, 330], proving that reflection should be an evidence-seeking process rather than a purely textual revision step[cite: 11, 66].
           </p>
         </div>
       </div>
@@ -109,13 +109,13 @@
     <div class="content">
       <ul>
         <li>
-          <strong>🔄 Closed-Loop Visual Reflection:</strong> Instead of relying on text-only speculation, MIRROR employs a "Think-then-Verify" mechanism. It actively queries the image with visual tools to validate its reasoning chain.
+          <strong>🔄 Closed-Loop Visual Reflection:</strong> MIRROR transforms open-loop text generation into a closed-loop grounded verification process, inspired by the human cognitive instinct to "look again" when detecting ambiguity[cite: 26, 27, 28].
         </li>
         <li>
-          <strong>📚 ReflectV Dataset & Rigorous Filtering:</strong> We introduce <strong>ReflectV</strong>, constructed via a pipeline that includes strict <em>Visual Verification Filtering</em>. Our ablation studies prove that <strong>Data Quality > Quantity</strong>—training on 24k filtered samples significantly outperforms 35k raw samples.
+          <strong>📚 ReflectV Dataset & Multi-Agent Pipeline:</strong> We implement a novel multi-agent pipeline to curate <strong>ReflectV</strong> (~24k samples), transforming static QA pairs into rich correction histories with precise visual cues[cite: 63, 71, 171].
         </li>
         <li>
-          <strong>🚀 SOTA Performance & Adaptability:</strong> MIRROR achieves state-of-the-art results on fine-grained perception and hallucination benchmarks. Crucially, it is <strong>adaptive</strong>: resolving ~98% of simple queries in one turn while engaging in deep reflection only for complex tasks.
+          <strong>🚀 SOTA Performance & Efficiency:</strong> MIRROR outperforms strong baselines (e.g., Qwen2.5-VL, InternVL3) across diverse benchmarks[cite: 73, 266]. It balances efficiency and rigor, resolving <strong>80.2% of samples in the first turn</strong> while engaging in deep reflection only when necessary[cite: 674, 694].
         </li>
       </ul>
     </div>
@@ -129,24 +129,24 @@
     <h2 class="title is-3 has-text-centered">Methodology: The MIRROR Framework</h2>
     
     <div align="center">
-      <img src="./static/images/method.png" width="90%" />
-      <p style="font-size: 0.9em; margin-top: 10px;">Figure 1: The architecture of MIRROR and the ReflectV data construction pipeline.</p>
+      <img src="./static/images/method_pipeline.png" width="90%" />
+      <p style="font-size: 0.9em; margin-top: 10px;">Figure 1: The MIRROR framework architecture and the closed-loop verification process[cite: 104, 144].</p>
     </div>
 
     <div class="content has-text-justified">
       <h3 class="title is-4">1. ReflectV Data Construction</h3>
       <p>
-        To transform raw dialogue simulations into high-quality instruction data, we implement a rigorous curation pipeline. This process ensures logical convergence, visual grounding, and introspective alignment through three sequential stages:
+        To teach models how to reflect visually, we transform external feedback into self-reflection using a rigorous curation pipeline[cite: 64, 171, 220]:
       </p>
       <ul>
-        <li><strong>Dialogue Filtering Strategy:</strong> We enforce strictly ascending scores and successful convergence to prune invalid reasoning paths.</li>
-        <li><strong>Visual Grounding:</strong> We extract task-adaptive keywords and inject visual attribute descriptions to prevent text-only speculation.</li>
-        <li><strong>Self-Reflective Conversion:</strong> We transform external "Teacher" corrections into internal "Student" introspection.</li>
+        <li><strong>Dialogue Filtering Strategy:</strong> We preserve trajectories only if they show strictly ascending scores ($s_{t+1} > s_t$) and successful convergence to a perfect score[cite: 226, 227].</li>
+        <li><strong>Visual Grounding:</strong> We ground the introspective process with task-adaptive keywords, injecting visual attribute descriptions (e.g., "indicated by the red point") back into the reflection text[cite: 230, 233].</li>
+        <li><strong>Self-Reflective Conversion:</strong> External corrections (e.g., "Your answer is incorrect") are rewritten into a first-person reflective thought process[cite: 237, 238].</li>
       </ul>
 
       <h3 class="title is-4">2. Inference Mechanism</h3>
       <p>
-        During inference, MIRROR identifies potential errors and generates task-adaptive visual prompts (e.g., <em>“check the red region”</em>) to re-attend to neglected details, effectively bridging the gap between symbolic reasoning and visual perception.
+        MIRROR follows a four-step loop: (i) draft an initial answer; (ii) self-reflection to identify potential errors; (iii) visual verification using a tool-augmented generator to mark task-relevant regions; and (iv) refinement based on the updated visual evidence[cite: 104, 105, 106].
       </p>
     </div>
   </div>
@@ -161,7 +161,7 @@
     <div class="content">
       <h3 class="title is-4">🏆 Main Results on Benchmarks</h3>
       <p>
-        We compare MIRROR with SOTA MLLMs (e.g., Qwen2.5-VL, InternVL3). MIRROR consistently outperforms its backbone across three key dimensions: <strong>General Capabilities</strong>, <strong>OCR & Document Understanding</strong>, and <strong>Hallucination Mitigation</strong>.
+        MIRROR consistently outperforms its base model (Qwen2.5-VL-7B) across various benchmarks, particularly in reducing hallucinations and enhancing fine-grained perception[cite: 266, 318].
       </p>
       <div class="table-container">
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
@@ -204,7 +204,7 @@
         </table>
       </div>
       <p style="font-size: 0.9em;">
-        <strong>Analysis:</strong> MIRROR achieves a <strong>+5.5%</strong> gain on OCRBench and <strong>+13.3%</strong> on HalluBench compared to the backbone, proving the efficacy of visual grounding in reducing hallucinations.
+        <strong>Analysis:</strong> MIRROR achieves significant gains over the base models, specifically a <strong>+8.8%</strong> improvement on OCRBench [cite: 248] and a <strong>+13.36%</strong> improvement on HalluBench[cite: 318].
       </p>
     </div>
 
@@ -212,7 +212,7 @@
     <div class="content">
       <h3 class="title is-4">⚔️ Comparison with Reasoning Paradigms</h3>
       <p>
-        We benchmark MIRROR against two distinct paradigms: <strong>Text Reflection</strong> (e.g., VL-Rethinker) and <strong>Thinking with Images</strong> (e.g., DeepEyes).
+        MIRROR addresses the inherent limitations of <strong>Text Reflection</strong> (which suffers from speculation) and <strong>Thinking with Images</strong> (which lacks a feedback loop)[cite: 331, 332, 333].
       </p>
       <div class="columns is-centered">
         <div class="column is-three-quarters">
@@ -223,7 +223,7 @@
                 <th>Method</th>
                 <th>OCRBench</th>
                 <th>POPE</th>
-                <th>Weakness Identified</th>
+                <th>Efficiency (Time s/sample)</th>
               </tr>
             </thead>
             <tbody>
@@ -232,84 +232,29 @@
                 <td>VL-Rethinker</td>
                 <td>85.40</td>
                 <td>84.19</td>
-                <td>Hallucination Accumulation</td>
+                <td>5.56</td>
               </tr>
               <tr>
                 <td>Thinking w/ Images</td>
-                <td>DeepEyes</td>
-                <td>88.10</td>
-                <td>87.70</td>
-                <td>Lack of Feedback Loop</td>
+                <td>Adaptive-CoF</td>
+                <td>86.00</td>
+                <td>89.30</td>
+                <td>4.02</td>
               </tr>
               <tr style="font-weight: bold; background-color: #e6fffa;">
                 <td>Closed-Loop (Ours)</td>
                 <td>MIRROR</td>
                 <td>92.00</td>
                 <td>94.42</td>
-                <td>None (Addresses both)</td>
+                <td>3.73</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
       <p>
-        <strong>Insight:</strong> Text-only reflection risks degenerating into speculation (low POPE score). Visual augmentation methods lack targeted error correction. MIRROR's closed-loop mechanism bridges these gaps.
-      </p>
-    </div>
-
-    <br>
-    <div class="content">
-      <h3 class="title is-4">📊 Dynamic Adaptability</h3>
-      <div align="center">
-        <img src="./static/images/base_comparison.png" width="60%" />
-      </div>
-      <p>
-        <strong>Efficiency vs. Rigor:</strong> MIRROR adaptively adjusts its reasoning depth. For straightforward tasks like ChartQA, <strong>98.7%</strong> of samples are resolved in Round 1. For complex tasks like MME-RealWorld, it triggers multi-turn reflection, ensuring computational resources are used only when necessary.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<hr>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Qualitative Analysis</h2>
-    <div class="columns is-vcentered">
-      <div class="column has-text-centered">
-        <img src="./static/images/case_study_1.png" alt="Counting Case" width="100%"/>
-        <p><strong>Case 1: Fine-grained Counting.</strong> Baseline sees 3 dogs; MIRROR reflects, marks points, and correctly counts 2.</p>
-      </div>
-      <div class="column has-text-centered">
-        <img src="./static/images/case_study_2.png" alt="Attribute Binding Case" width="100%"/>
-        <p><strong>Case 2: Attribute Binding.</strong> Baseline misses the car; MIRROR zooms in/marks the distant region to identify the red car.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr>
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{mirror2026,
-  title={MIRROR: A Closed-Loop Visual Reflection Framework for Multi-modal LLMs},
-  author={User, and Collaborators},
-  journal={arXiv preprint arXiv:2602.xxxxx},
-  year={2026}
-}</code></pre>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <p>
-        This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-        Template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+        <strong>Efficiency Insight:</strong> MIRROR reduces inference time by <strong>32.9%</strong> compared to VL-Rethinker [cite: 722] and outperforms Adaptive-CoF while consuming fewer tokens[cite: 721, 725].
       </p>
     </div>
   </div>
-</footer>
+</section>
