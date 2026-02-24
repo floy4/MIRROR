@@ -84,7 +84,6 @@ Performance comparison on General Capabilities and OCR & Document Benchmarks
 | Qwen2.5‑VL‑7B          | 7B         | 56.60  | 61.21  | <u>70.88</u>     | 84.90       | 83.20    | 86.08        |
 | **MIRROR (w/o tool)**  | 7B         | 59.91  | <u>62.80</u> | 70.36            | <u>85.37</u> | <u>88.30</u> | <u>86.56</u> |
 | **MIRROR (ours)**      | 7B         | **66.70** | **73.33** | **76.86**        | **86.62**   | **92.00** | **87.92**    |
-|
 
 Performance comparison on Hallucination, Fine-grained Perception, and Reasoning Benchmarks.
 
@@ -97,7 +96,6 @@ Performance comparison on Hallucination, Fine-grained Perception, and Reasoning 
 | Qwen2.5‑VL‑7B          | 7B         | 86.45  | <u>68.66</u> | 68.87      | 44.29 | 75.39      | 23.36      |
 | **MIRROR (w/o tool)**  | 7B         | 87.95  | 68.24      | 69.13      | 46.01 | <u>76.44</u> | <u>27.30</u> |
 | **MIRROR (ours)**      | 7B         | **94.42** | **82.02**  | **72.88**  | **51.49** | **83.77**  | **28.29**  |
-|
 
 ### **⚔️ Comparison with Reasoning Paradigms**
 MIRROR addresses the inherent limitations of **Text Reflection** and **Thinking with Images** by incorporating a targeted feedback loop.
@@ -113,7 +111,6 @@ Performance comparison with SOTA reasoning methods, which are all fine-tuned on 
 | DeepEyes               | <u>88.10</u> | 87.70  | 49.50  | 60.28 |
 | Adaptive-CoF           | 86.00    | <u>89.30</u> | <u>50.90</u> | <u>66.21</u> |
 | **MIRROR (ours)**      | **92.00** | **94.42** | **51.49** | **66.70** |
-|
 
 <br>
 
