@@ -23,20 +23,10 @@
 <br>
 
 <span>
-Haoyu Zhang<sup>1,2</sup>, 
-<a class="name" target="_blank" href="https://wu-yuwei-bit.github.io/">Yuwei Wu</a><sup>1,2</sup>, 
-<a class="name" target="_blank" href="https://pengxiang-li.github.io/">Pengxiang Li</a><sup>1</sup>, 
-<a class="name" target="_blank" href="https://github.com/xtong-zhang/">Xintong Zhang</a><sup>1</sup>, 
-<a class="name" target="_blank" href="https://zhigao2017.github.io/">Zhi Gao</a><sup>1,2</sup>, 
-Rui Gao<sup>1,2</sup>, 
-Mingyang Gao<sup>1</sup>,
-<a class="name" target="_blank" href="https://scholar.google.com/citations?user=nVMtrAoAAAAJ&hl=en">Che Sun</a><sup>2</sup>, 
-<a class="name" target="_blank" href="https://scholar.google.com/citations?user=Sl6TV7gAAAAJ&hl=en">Yunde Jia</a><sup>2</sup>
+Anonymous Authors
 <br />
 <br />
-<sup>1</sup>Beijing Key Laboratory of Intelligent Information Technology, School of Computer Science & Technology, Beijing Institute of Technology 
-<sup>2</sup>Guangdong Laboratory of Machine Perception and Intelligent Computing, Shenzhen MSU-BIT University <br />
-<!-- <sup>✉️</sup>Corresponding author -->
+Anonymous Institution <br />
 </span>
 
 <!-- # 🔥News
