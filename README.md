@@ -9,7 +9,10 @@
 
   <br>
 
-  <!-- Links removed for anonymous review -->
+  <!-- ArXiv link removed for anonymous review -->
+  <a href="https://github.com/floy4/MIRROR/">
+    <img src="https://img.shields.io/badge/-Code-black?logo=github" alt="Code">
+  </a>
   <a href="https://huggingface.co/datasets/3nnui/Reflect-V">
     <img src="https://img.shields.io/badge/🤗 Dataset-ReflectV-purple" alt="Dataset">
   </a>
