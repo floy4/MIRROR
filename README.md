@@ -47,9 +47,9 @@ Mingyang Gao<sup>1</sup>,
 
 # Abstract
 
-<div align=”center”>
-  ![Teaser](static/images/teaser.png)
-</div>
+<p align=”center”>
+  <img src=”static/images/teaser.png” alt=”Teaser” width=”100%”/>
+</p>
 
 Self-reflection has become a key mechanism for improving reasoning in Vision-Language Models (VLMs), yet this corrective mechanism often fails when resolving complex fine-grained regional ambiguities. This performance degradation stems from the issue of **modality disconnect in self-reflection**: most existing models execute self-reflection either within textual or latent space, lacking a mechanism to explicitly align textual reasoning with visual evidence.
 
