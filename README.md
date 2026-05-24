@@ -9,12 +9,7 @@
 
   <br>
 
-  <a href="https://github.com/floy4/MIRROR/">
-    <img src="https://img.shields.io/badge/-Code-black?logo=github" alt="Code">
-  </a>
-  <a href="https://arxiv.org/pdf/2602.18746">
-    <img src="https://img.shields.io/badge/ArXiv-2602.18746-brown?logo=arxiv" alt="Paper">
-  </a>
+  <!-- Links removed for anonymous review -->
   <a href="https://huggingface.co/datasets/3nnui/Reflect-V">
     <img src="https://img.shields.io/badge/🤗 Dataset-ReflectV-purple" alt="Dataset">
   </a>
@@ -121,11 +116,4 @@ Performance comparison with SOTA reasoning methods, which are all fine-tuned on 
 
 <br>
 
-## Citation
-```bibtex
-@article{zhang2026mirror,
-      title={Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification},
-      author={Zhang, Haoyu and Wu, Yuwei and Li, Pengxiang and Zhang, Xintong and Gao, Zhi and Gao, Rui and Gao, Mingyang and Sun, Che and Jia, Yunde},
-      journal={arXiv preprint arXiv:2602.18746},
-      year={2026}
-}
+<!-- Citation removed for anonymous review -->
