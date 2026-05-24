@@ -4,7 +4,7 @@
          width="40" height="40"
          alt="MIRROR logo"
          style="vertical-align:middle; margin-right:0.5rem;"/>
-    MIRROR: Multimodal Iterative Reasoning via Reflection On Visual Regions
+    Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification
   </h1>
 
   <br>
@@ -47,11 +47,15 @@ Mingyang Gao<sup>1</sup>,
 
 # Abstract
 
-<div align="center">
-  <img src="static/images/teaser.png" alt="Teaser"/>
+<div align=”center”>
+  <img src=”static/images/teaser.png” alt=”Teaser”/>
 </div>
 
-In the era of Vision-Language Models (VLMs),enhancing multimodal reasoning capabilities remains a critical challenge, particularly in handling ambiguous or complex visual inputs, where initial inferences often lead to hallucinations or logic errors. Existing VLMs often produce plausible yet ungrounded answers, and even when prompted to “reflect”, their corrections may remain detached from the image evidence. To address this, we propose the MIRROR framework for multimodal iterative reasoning via reflection on visual regions. By embedding visual reflection as a core mechanism, MIRROR is formulated as a closed-loop process comprising draft, critique, region-based verification, and revision, which are repeated until the output is visually grounded. To facilitate training of this model, we construct ReflectV, a visual reflective dataset for multi-turn supervision that explicitly contains reflection triggers, region-based verification actions, and answer revision grounded in visual evidence. Experiments on both general vision-language benchmarks and representative vision-language reasoning benchmarks show that MIRROR improves correctness and reduces visual hallucinations, demonstrating the value of training reflection as an evidenceseeking, region-aware verification process rather than a purely textual revision step.
+Self-reflection has become a key mechanism for improving reasoning in Vision-Language Models (VLMs), yet this corrective mechanism often fails when resolving complex fine-grained regional ambiguities. This performance degradation stems from the issue of **modality disconnect in self-reflection**: most existing models execute self-reflection either within textual or latent space, lacking a mechanism to explicitly align textual reasoning with visual evidence.
+
+In this paper, we propose **MIRROR**, a closed-loop visual reflection framework comprising four steps: initial response generation, error identification, region-based visual verification, and revision. In this cycle, the model first generates an initial response, identifies uncertain logical assertions that require visual verification, then grounds them in relevant image regions, and finally revises based on the visual evidence. We construct a multi-turn visual reflection dataset **ReflectV**, which empowers the model with such reflective capability.
+
+Extensive experiments across 12 diverse multimodal benchmarks show that MIRROR achieves an average absolute improvement of **7.2 percentage points** over the base model, with particularly strong gains in hallucination mitigation (**+13.36 on HallusionBench**) and general reasoning (**+10.10 on MM-Vet**), demonstrating the advantage of transforming self-reflection from open-loop textual revision into closed-loop, visually grounded verification.
 
 <br>
 
@@ -98,18 +102,23 @@ Performance comparison on Hallucination, Fine-grained Perception, and Reasoning 
 | **MIRROR (ours)**      | 7B         | **94.42** | **82.02**  | **72.88**  | **51.49** | **83.77**  | **28.29**  |
 
 ### **⚔️ Comparison with Reasoning Paradigms**
-MIRROR addresses the inherent limitations of **Text Reflection** and **Thinking with Images** by incorporating a targeted feedback loop.
+MIRROR addresses the inherent limitations of existing reasoning paradigms by incorporating a closed-loop verification process. All methods are fine-tuned on Qwen2.5-VL-7B for fair comparison.
 
 Performance comparison with SOTA reasoning methods, which are all fine-tuned on Qwen2.5-VL-7B. The best and second-best results are highlighted in **bold** and <u>underlined</u>, respectively.
 
-| Method                 | OCRBench | POPE   | MME-RW | MMVet |
-|------------------------|----------|--------|--------|-------|
-| *Text Reflection*      |          |        |        |       |
-| VL-Rethinker           | 85.40    | 84.19  | 47.21  | 56.19 |
-| *Thinking with Images* |          |        |        |       |
-| PixelReasoner          | 82.10    | 86.03  | 49.70  | 52.98 |
-| DeepEyes               | <u>88.10</u> | 87.70  | 49.50  | 60.28 |
-| Adaptive-CoF           | 86.00    | <u>89.30</u> | <u>50.90</u> | <u>66.21</u> |
+| Method                 | OCRBench | POPE   | MME-RW | MM-Vet |
+|------------------------|----------|--------|--------|--------|
+| *Text Reflection*      |          |        |        |        |
+| VL-Rethinker           | 85.40    | 84.19  | 47.21  | 56.19  |
+| *Visual Reflection*    |          |        |        |        |
+| LookBack (Solution)    | 87.50    | 88.20  | 49.80  | 63.50  |
+| LookBack (Semantic)    | <u>88.60</u> | <u>89.80</u> | 50.40  | 65.10  |
+| *Thinking with Images* |          |        |        |        |
+| PixelReasoner-SFT      | 76.35    | 80.01  | 44.73  | 47.68  |
+| PixelReasoner          | 82.10    | 86.03  | 49.70  | 52.98  |
+| DeepEyes               | 88.10    | 87.70  | 49.50  | 60.28  |
+| Adaptive-CoF-SFT       | 85.62    | 82.53  | 50.10  | 62.73  |
+| Adaptive-CoF           | 86.00    | 89.30  | <u>50.90</u> | <u>66.21</u> |
 | **MIRROR (ours)**      | **92.00** | **94.42** | **51.49** | **66.70** |
 
 <br>
@@ -125,7 +134,7 @@ Performance comparison with SOTA reasoning methods, which are all fine-tuned on 
 ## Citation
 ```bibtex
 @article{zhang2026mirror,
-      title={MIRROR: Multimodal Iterative Reasoning via Reflection On Visual Regions},
+      title={Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification},
       author={Zhang, Haoyu and Wu, Yuwei and Li, Pengxiang and Zhang, Xintong and Gao, Zhi and Gao, Rui and Gao, Mingyang and Sun, Che and Jia, Yunde},
       journal={arXiv preprint arXiv:2602.18746},
       year={2026}
