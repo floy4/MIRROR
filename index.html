@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="MIRROR: Multimodal Iterative Reasoning via Reflection On Visual Regions">
-  <meta name="keywords" content="VLM, Multimodal Reasoning, Reflection, MIRROR">
+  <meta name="description" content="MIRROR: Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification">
+  <meta name="keywords" content="VLM, Multimodal Reasoning, Visual Reflection, Self-Reflection, MIRROR">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MIRROR: Multimodal Iterative Reasoning via Reflection On Visual Regions</title>
+  <title>MIRROR: Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -43,7 +43,7 @@
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
             <img src="./static/images/icon.svg" width="45" style="vertical-align: middle; margin-right: 10px;"/>
-            MIRROR: Multimodal Iterative Reasoning via Reflection On Visual Regions
+            MIRROR: Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification
           </h1>
           
           <div class="is-size-5 publication-authors">
@@ -99,7 +99,13 @@
         <img src="static/images/teaser.png" alt="Teaser" class="sharp-img" style="width: 100%; margin-bottom: 20px;"/>
         <div class="content has-text-justified">
           <p>
-            In the era of Vision-Language Models (VLMs), enhancing multimodal reasoning capabilities remains a critical challenge, particularly in handling ambiguous or complex visual inputs. We propose <strong>MIRROR</strong>, a framework for multimodal iterative reasoning via reflection on visual regions. By embedding visual reflection as a core mechanism, MIRROR follows a closed-loop process: draft, critique, region-based verification, and revision. To support this, we construct <strong>ReflectV</strong>, a dataset for multi-turn supervision. Experiments show MIRROR significantly improves correctness and reduces hallucinations.
+            Self-reflection has become a key mechanism for improving reasoning in Vision-Language Models (VLMs), yet this corrective mechanism often fails when resolving complex fine-grained regional ambiguities. This performance degradation stems from the issue of <strong>modality disconnect in self-reflection</strong>: most existing models execute self-reflection either within textual or latent space, lacking a mechanism to explicitly align textual reasoning with visual evidence.
+          </p>
+          <p>
+            In this paper, we propose <strong>MIRROR</strong>, a closed-loop visual reflection framework comprising four steps: initial response generation, error identification, region-based visual verification, and revision. In this cycle, the model first generates an initial response, identifies uncertain logical assertions that require visual verification, then grounds them in relevant image regions, and finally revises based on the visual evidence. We construct a multi-turn visual reflection dataset <strong>ReflectV</strong>, which empowers the model with such reflective capability.
+          </p>
+          <p>
+            Extensive experiments across 12 diverse multimodal benchmarks show that MIRROR achieves an average absolute improvement of <strong>7.2 percentage points</strong> over the base model, with particularly strong gains in hallucination mitigation (<strong>+13.36 on HallusionBench</strong>) and general reasoning (<strong>+10.10 on MM-Vet</strong>), demonstrating the advantage of transforming self-reflection from open-loop textual revision into closed-loop, visually grounded verification.
           </p>
         </div>
       </div>
@@ -193,7 +199,7 @@
 
       <h3 class="title is-4">⚔️ Comparison with Reasoning Paradigms</h3>
       <p>
-        MIRROR addresses the inherent limitations of <strong>Text Reflection</strong> and <strong>Thinking with Images</strong> by incorporating a targeted feedback loop.
+        MIRROR addresses the inherent limitations of existing reasoning paradigms by incorporating a closed-loop verification process. All methods are fine-tuned on Qwen2.5-VL-7B for fair comparison.
       </p>
       <div class="table-container">
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
@@ -203,16 +209,21 @@
               <th style="color: white;">OCRBench</th>
               <th style="color: white;">POPE</th>
               <th style="color: white;">MME-RW</th>
-              <th style="color: white;">MMVet</th>
+              <th style="color: white;">MM-Vet</th>
             </tr>
           </thead>
           <tbody>
             <tr class="category-row"><td colspan="5">Text Reflection</td></tr>
             <tr><td>VL-Rethinker</td><td>85.40</td><td>84.19</td><td>47.21</td><td>56.19</td></tr>
+            <tr class="category-row"><td colspan="5">Visual Reflection</td></tr>
+            <tr><td>LookBack (Solution)</td><td>87.50</td><td>88.20</td><td>49.80</td><td>63.50</td></tr>
+            <tr><td>LookBack (Semantic)</td><td class="second-best">88.60</td><td class="second-best">89.80</td><td>50.40</td><td>65.10</td></tr>
             <tr class="category-row"><td colspan="5">Thinking with Images</td></tr>
+            <tr><td>PixelReasoner-SFT</td><td>76.35</td><td>80.01</td><td>44.73</td><td>47.68</td></tr>
             <tr><td>PixelReasoner</td><td>82.10</td><td>86.03</td><td>49.70</td><td>52.98</td></tr>
-            <tr><td>DeepEyes</td><td class="second-best">88.10</td><td>87.70</td><td>49.50</td><td>60.28</td></tr>
-            <tr><td>Adaptive-CoF</td><td>86.00</td><td class="second-best">89.30</td><td class="second-best">50.90</td><td class="second-best">66.21</td></tr>
+            <tr><td>DeepEyes</td><td>88.10</td><td>87.70</td><td>49.50</td><td>60.28</td></tr>
+            <tr><td>Adaptive-CoF-SFT</td><td>85.62</td><td>82.53</td><td>50.10</td><td>62.73</td></tr>
+            <tr><td>Adaptive-CoF</td><td>86.00</td><td>89.30</td><td class="second-best">50.90</td><td class="second-best">66.21</td></tr>
             <tr style="background-color: #e6fffa;"><td class="best">MIRROR (ours)</td><td class="best">92.00</td><td class="best">94.42</td><td class="best">51.49</td><td class="best">66.70</td></tr>
           </tbody>
         </table>
@@ -233,7 +244,7 @@
   <div class="container is-max-desktop content">
     <h2 class="title">Citation</h2>
     <pre><code>@article{zhang2026mirror,
-  title={MIRROR: Multimodal Iterative Reasoning via Reflection On Visual Regions},
+  title={Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification},
   author={Zhang, Haoyu and Wu, Yuwei and Li, Pengxiang and Zhang, Xintong and Gao, Zhi and Gao, Rui and Gao, Mingyang and Sun, Che and Jia, Yunde},
   journal={arXiv preprint arXiv:2602.18746},
   year={2026}
